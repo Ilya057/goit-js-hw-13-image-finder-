@@ -1,41 +1,28 @@
-import refs from "./refs.js"
+import refs from "./refs";
+
+export default{
+  _query:'',
+  page: 1,
+  apiKey: '18864763-1ad3d49af940e9eb25fd728e0',
 
 
-const apiKey = `18623369-889f6d1cb3a21a0bcc2be87ce`;
-const baseUrl = `https://pixabay.com/api/`
-
-export default {
-    _query: "",
-    page: 1,
-    perPage: 12,
-
-    async fetchImage() {
-        let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
-        try {
-            const res = await fetch(url);
-            const getResponse = await res.json();
-            return getResponse
-        } catch (error) {
-            throw error
-        };
-    },
-    setPage() {
-        return this.page++;
-    },
-    resetPage() {
-        return this.page = 1;
-    },
-    get query() {
-        return this._query;
-    },
-    set query(newQuery) {
-        return this._query = newQuery;
-    },
-}
-
-
-function displayError(error) {
-    const errorH2 = document.createElement("h2");
-    errorH2.textContent = error;
-    refs.body.prepend(errorH2)
+async toGetFetch() {
+  let url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this._query}&page=${this.page}&per_page=12&key=${this.apiKey}`
+  let response = await fetch(url);
+  let result = await response.json();
+  console.log(result.hits);
+  return result.hits;
+  },
+  get query() {
+    return this._query;
+  },
+  set query(value){
+    return this._query = value;
+  },
+  resetPage(){
+    return this.page = 1;
+  },
+   setPage (){
+    return this.page +=1 ;
+  }
 }

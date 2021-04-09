@@ -1,6 +1,5 @@
 export default {
-  body: document.querySelector("body"),
-  form: document.querySelector("#search-form"),
-  input: document.querySelector("#query"),
-  galleryList: document.querySelector(".gallery")
+  search: document.getElementById('search-form'),
+  gallery: document.querySelector('.gallery'),
+  button: document.querySelector('.button_add')
 }

@@ -1,51 +1,66 @@
-body {
-  background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-misctexture01-tong-019-chim-02_1_3.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=2c732ce5066026b4fe5ca5d78abbe706);
+html {
+  box-sizing: border-box;
 }
-img {
-  display: block;
-  width: 100%;
-  height: auto;
 
-
-
-
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-#query {
-  display: block;
-  margin: 20px auto;
-  font-size: 18px;
-  padding: 10px;
-}
-.gallery {
-  padding: 0;
-  list-style: none;
+
+/* .container {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+.search {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  flex-direction: column;
+}
+
+.search-form {
+  padding: 50px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.photo-item {
-  background-color: rgb(234, 238, 212);
-  box-shadow: 0 0 10px rgb(0 0 0);
-  width: calc((100% - 30px * 2) / 3);
+
+.gallery li {
+  list-style-type: none;
+  border: 1px solid #ddd;
+  height: 400px;
+  margin-bottom: 30px;
+  background: #fff;
 }
-.photo-item:not(:nth-child(3n)) {
+
+.gallery li:not(:nth-child(3n + 3)) {
   margin-right: 30px;
 }
-.photo-item:not(:nth-last-child(-n + 3)) {
-  margin-bottom: 30px;
+
+.gallery li:last-child {
+  margin-right: 0;
 }
+
 .photo-card {
-  padding: 5px;
+  max-width: 320px;
+  width: 320px;
+  height: 200px;
+  text-align: center;
 }
-.stats {
-  display: flex;
-  justify-content: space-evenly;
+
+.photo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  width: auto;
 }
-.material-icons {
-  display: block;
-  margin-bottom: 5px;
+
+.is-hidden {
+  display: none;
 }
-.loadmore-button {
-  display: block;
-  margin: 20px auto;
-  font-size: 18px;
-  }
